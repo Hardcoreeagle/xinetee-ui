@@ -9,6 +9,7 @@ const getTitleFromPath = (path: string) => {
   const pathMap: { [key: string]: string } = {
     "/dashboard": "Product Dashboard",
     "/register-product": "Register New Product",
+    "/add-checkpoint": "Add New Checkpoint",
     "/verify": "Verify Product",
     "/feedback": "User Feedback",
     "/admin": "Admin Panel",
