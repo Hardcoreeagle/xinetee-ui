@@ -12,21 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
-async function submitFeedback(formData: FormData) {
-    "use server";
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const feedback = formData.get("feedback") as string;
-    
-    // Simulate API call
-    console.log("Feedback Received:", { name, email, feedback });
-    await new Promise(res => setTimeout(res, 1000));
-
-    // In a real app, you would handle success/error states properly
-    // For now, we'll just return a success state.
-    return { success: true };
-}
+import { submitFeedback } from "./actions";
 
 export default function FeedbackPage() {
     const { toast } = useToast();
