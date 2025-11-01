@@ -52,7 +52,8 @@ function CheckpointTimeline({ checkpoints }: { checkpoints: Checkpoint[] }) {
 }
 
 
-export default function ProductDetailPage({ params: { id } }: { params: { id: string } }) {
+export default function ProductDetailPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const product = getProductById(id);
   const [checkpoints, setCheckpoints] = useState(product?.checkpoints || []);
   const [newLocation, setNewLocation] = useState('');
