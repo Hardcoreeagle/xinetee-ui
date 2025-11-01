@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { Checkpoint } from "@/lib/data";
 import { getProductById } from "@/lib/data";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -13,12 +14,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
-import { MapPin, Link as LinkIcon, PlusCircle, ArrowRight } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { MapPin, Link as LinkIcon, PlusCircle } from "lucide-react";
 
 
 function CheckpointTimeline({ checkpoints }: { checkpoints: Checkpoint[] }) {
@@ -53,36 +50,15 @@ function CheckpointTimeline({ checkpoints }: { checkpoints: Checkpoint[] }) {
 
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const product = getProductById(params.id);
-  const [checkpoints, setCheckpoints] = useState(product?.checkpoints || []);
-  const [newLocation, setNewLocation] = useState('');
-  const [newStatus, setNewStatus] = useState('');
-  const { toast } = useToast();
+  const { id } = params;
+  const product = getProductById(id);
+  // The state for checkpoints is now managed within this component only for display.
+  // In a real app, this would be fetched and updated from a database.
+  const [checkpoints] = useState(product?.checkpoints || []);
 
   if (!product) {
     notFound();
   }
-
-  const handleAddCheckpoint = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newLocation || !newStatus) {
-        toast({ title: "Error", description: "Please fill in all checkpoint fields.", variant: "destructive"});
-        return;
-    }
-
-    const newCheckpoint: Checkpoint = {
-        id: `cp-${product.id}-${checkpoints.length + 1}`,
-        location: newLocation,
-        status: newStatus,
-        timestamp: new Date().toISOString(),
-        by: 'WarehouseTeam' // Simulated role
-    };
-
-    setCheckpoints([...checkpoints, newCheckpoint]);
-    setNewLocation('');
-    setNewStatus('');
-    toast({ title: "Success", description: "New checkpoint added to the product journey."});
-  };
 
   return (
     <div className="grid md:grid-cols-3 gap-8">
@@ -111,30 +87,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             </div>
           </CardContent>
         </Card>
-
-         <Card>
-          <CardHeader>
-            <CardTitle>Add Checkpoint</CardTitle>
-            <CardDescription>Update the product's journey (for logistics/warehouse roles).</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleAddCheckpoint} className="space-y-4">
-               <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                    <Label htmlFor="location">Location</Label>
-                    <Input id="location" value={newLocation} onChange={(e) => setNewLocation(e.target.value)} placeholder="e.g., Warehouse, NY" />
-                </div>
-                 <div>
-                    <Label htmlFor="status">Status</Label>
-                    <Input id="status" value={newStatus} onChange={(e) => setNewStatus(e.target.value)} placeholder="e.g., Arrived at warehouse" />
-                </div>
-               </div>
-              <Button type="submit" className="w-full sm:w-auto">
-                <PlusCircle className="mr-2 h-4 w-4" /> Add Checkpoint
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
       </div>
 
       <div className="md:col-span-1">
@@ -145,6 +97,11 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
           </CardHeader>
           <CardContent>
              <CheckpointTimeline checkpoints={checkpoints} />
+             <Button asChild className="w-full mt-6">
+                <Link href={`/products/${id}/add-checkpoint`}>
+                    <PlusCircle className="mr-2 h-4 w-4" /> Add Checkpoint
+                </Link>
+             </Button>
           </CardContent>
         </Card>
       </div>
