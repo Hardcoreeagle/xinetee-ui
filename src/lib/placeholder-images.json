@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "product-1",
+      "description": "A close-up of a high-tech processor chip.",
+      "imageUrl": "https://images.unsplash.com/photo-1751887687766-c18728bc238a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9jZXNzb3IlMjBjaGlwfGVufDB8fHx8MTc2MjAzOTA3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "processor chip"
+    },
+    {
+      "id": "product-2",
+      "description": "A luxury watch with a leather strap.",
+      "imageUrl": "https://images.unsplash.com/photo-1548171916-c0dea7f94ca6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bHV4dXJ5JTIwd2F0Y2h8ZW58MHx8fHwxNzYyMDA4NzI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury watch"
+    },
+    {
+      "id": "product-3",
+      "description": "A bottle of premium organic olive oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1612879988258-0d819c297621?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxvbGl2ZSUyMG9pbHxlbnwwfHx8fDE3NjE5MzU0MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "olive oil"
+    },
+    {
+      "id": "product-4",
+      "description": "Designer leather handbag.",
+      "imageUrl": "https://images.unsplash.com/photo-1570431118100-c24a54fdeab0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsZWF0aGVyJTIwaGFuZGJhZ3xlbnwwfHx8fDE3NjIwMTk3ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leather handbag"
+    },
+    {
+      "id": "product-5",
+      "description": "A box of artisanal chocolates.",
+      "imageUrl": "https://images.unsplash.com/photo-1715256599408-da49aa2bca1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhcnRpc2FuYWwlMjBjaG9jb2xhdGVzfGVufDB8fHx8MTc2MjAzOTA3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "artisanal chocolates"
+    },
+    {
+      "id": "product-6",
+      "description": "Advanced medical equipment.",
+      "imageUrl": "https://images.unsplash.com/photo-1516549655169-df83a0774514?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtZWRpY2FsJTIwZXF1aXBtZW50fGVufDB8fHx8MTc2MjAzOTA3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "medical equipment"
+    }
+  ]
 }
