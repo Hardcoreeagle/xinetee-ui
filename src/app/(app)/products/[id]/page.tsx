@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -15,7 +16,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { MapPin, Link as LinkIcon, PlusCircle } from "lucide-react";
+import { MapPin, Link as LinkIcon, PlusCircle, FileText } from "lucide-react";
 
 
 function CheckpointTimeline({ checkpoints }: { checkpoints: Checkpoint[] }) {
@@ -35,12 +36,18 @@ function CheckpointTimeline({ checkpoints }: { checkpoints: Checkpoint[] }) {
               <div className="w-px h-full bg-border" />
             )}
           </div>
-          <div className="pb-6">
+          <div className="pb-6 w-full">
             <p className="font-semibold">{cp.status}</p>
             <p className="text-sm text-muted-foreground">{cp.location}</p>
             <p className="text-xs text-muted-foreground mt-1">
               {new Date(cp.timestamp).toLocaleString()} by {cp.by}
             </p>
+            {cp.documentUrl && (
+                <a href={cp.documentUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-primary hover:underline text-sm mt-2">
+                    <FileText className="h-4 w-4" />
+                    <span>View Document</span>
+                </a>
+            )}
           </div>
         </div>
       ))}

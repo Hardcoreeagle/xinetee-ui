@@ -1,9 +1,11 @@
+
 export type Checkpoint = {
   id: string;
   location: string;
   status: string;
   timestamp: string;
   by: string;
+  documentUrl?: string;
 };
 
 export type Product = {
@@ -27,9 +29,9 @@ export const products: Product[] = [
     manufacturer: "ChipMakers Inc.",
     registrationDate: "2023-01-15T09:30:00Z",
     checkpoints: [
-      { id: "cp-001a", location: "Factory, Silicon Valley", status: "Manufactured", timestamp: "2023-01-15T10:00:00Z", by: "LogisticsDept" },
+      { id: "cp-001a", location: "Factory, Silicon Valley", status: "Manufactured", timestamp: "2023-01-15T10:00:00Z", by: "LogisticsDept", documentUrl: "#" },
       { id: "cp-001b", location: "Distribution Center, NV", status: "In Transit", timestamp: "2023-01-16T04:00:00Z", by: "LogisticsDept" },
-      { id: "cp-001c", location: "Retail Warehouse, NY", status: "Delivered", timestamp: "2023-01-18T14:00:00Z", by: "WarehouseTeam" },
+      { id: "cp-001c", location: "Retail Warehouse, NY", status: "Delivered", timestamp: "2023-01-18T14:00:00Z", by: "WarehouseTeam", documentUrl: "#" },
     ],
   },
   {
@@ -41,7 +43,7 @@ export const products: Product[] = [
     manufacturer: "Timeless Creations Ltd.",
     registrationDate: "2023-02-20T11:00:00Z",
     checkpoints: [
-      { id: "cp-002a", location: "Workshop, Geneva", status: "Assembled", timestamp: "2023-02-20T12:00:00Z", by: "ArtisanGuild" },
+      { id: "cp-002a", location: "Workshop, Geneva", status: "Assembled", timestamp: "2023-02-20T12:00:00Z", by: "ArtisanGuild", documentUrl: "#" },
       { id: "cp-002b", location: "Customs, Zurich Airport", status: "Exported", timestamp: "2023-02-21T08:00:00Z", by: "LogisticsDept" },
     ],
   },
@@ -54,8 +56,8 @@ export const products: Product[] = [
     manufacturer: "Oliva Farms",
     registrationDate: "2023-03-10T14:00:00Z",
     checkpoints: [
-       { id: "cp-003a", location: "Orchard, Tuscany", status: "Harvested", timestamp: "2023-03-01T10:00:00Z", by: "FarmAdmin" },
-       { id: "cp-003b", location: "Processing Plant, Florence", status: "Bottled", timestamp: "2023-03-10T15:00:00Z", by: "QualityControl" }
+       { id: "cp-003a", location: "Orchard, Tuscany", status: "Harvested", timestamp: "2023-03-01T10:00:00Z", by: "FarmAdmin", documentUrl: "#" },
+       { id: "cp-003b", location: "Processing Plant, Florence", status: "Bottled", timestamp: "2023-03-10T15:00:00Z", by: "QualityControl", documentUrl: "#" }
     ],
   },
   {
@@ -77,7 +79,7 @@ export const products: Product[] = [
     manufacturer: "ChocoLuxe",
     registrationDate: "2023-05-01T18:00:00Z",
     checkpoints: [
-      { id: "cp-005a", location: "Kitchen, Brussels", status: "Crafted", timestamp: "2023-05-01T19:00:00Z", by: "Chocolatier" }
+      { id: "cp-005a", location: "Kitchen, Brussels", status: "Crafted", timestamp: "2023-05-01T19:00:00Z", by: "Chocolatier", documentUrl: "#" }
     ],
   },
   {
@@ -90,7 +92,7 @@ export const products: Product[] = [
     registrationDate: "2023-06-12T09:00:00Z",
     checkpoints: [
        { id: "cp-006a", location: "R&D Lab, Boston", status: "Calibrated", timestamp: "2023-06-10T17:00:00Z", by: "Engineering" },
-       { id: "cp-006b", location: "Assembly Line, Boston", status: "Assembled", timestamp: "2023-06-12T10:00:00Z", by: "Manufacturing" }
+       { id: "cp-006b", location: "Assembly Line, Boston", status: "Assembled", timestamp: "2023-06-12T10:00:00Z", by: "Manufacturing", documentUrl: "#" }
     ],
   },
 ];
