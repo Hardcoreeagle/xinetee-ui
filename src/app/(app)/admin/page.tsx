@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -183,13 +184,14 @@ export default function AdminPage() {
                     <Select
                         value={user.role}
                         onValueChange={(value: UserRole) => handleRoleChange(user.id, value)}
+                        disabled={user.role === 'Admin'}
                     >
                         <SelectTrigger className="w-[180px]">
                             <SelectValue placeholder="Change role" />
                         </SelectTrigger>
                         <SelectContent>
                             {roles.map(role => (
-                                <SelectItem key={role} value={role}>{role}</SelectItem>
+                                <SelectItem key={role} value={role} disabled={role === 'Admin'}>{role}</SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
@@ -197,7 +199,7 @@ export default function AdminPage() {
                   <TableCell className="text-right">
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
-                             <Button variant="destructive" size="icon">
+                             <Button variant="destructive" size="icon" disabled={user.role === 'Admin'}>
                                 <Trash2 className="h-4 w-4" />
                             </Button>
                         </AlertDialogTrigger>
