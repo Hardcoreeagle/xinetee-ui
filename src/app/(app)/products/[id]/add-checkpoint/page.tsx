@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { UploadCloud, Loader2, PlusCircle } from 'lucide-react';
 
 export default function AddCheckpointPage({ params }: { params: { id: string } }) {
+    const { id } = params;
     const router = useRouter();
     const { toast } = useToast();
     const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +42,7 @@ export default function AddCheckpointPage({ params }: { params: { id: string } }
         setIsLoading(true);
 
         // Simulate API call to add checkpoint and upload doc
-        console.log("Adding checkpoint for product:", params.id);
+        console.log("Adding checkpoint for product:", id);
         console.log({ location, status, document: fileName });
         await new Promise(resolve => setTimeout(resolve, 1500));
 
@@ -52,7 +53,7 @@ export default function AddCheckpointPage({ params }: { params: { id: string } }
         });
         
         // Redirect back to the product detail page
-        router.push(`/products/${params.id}`);
+        router.push(`/products/${id}`);
     }
 
   return (
@@ -60,7 +61,7 @@ export default function AddCheckpointPage({ params }: { params: { id: string } }
       <CardHeader>
         <CardTitle>Add New Checkpoint</CardTitle>
         <CardDescription>
-          Update the product's supply chain journey for Product ID: {params.id}.
+          Update the product's supply chain journey for Product ID: {id}.
         </CardDescription>
       </CardHeader>
       <CardContent>
