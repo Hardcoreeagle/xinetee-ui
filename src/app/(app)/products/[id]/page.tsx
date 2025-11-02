@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Checkpoint } from "@/lib/data";
 import { getProductById } from "@/lib/data";
 import { notFound } from "next/navigation";
@@ -56,11 +56,17 @@ function CheckpointTimeline({ checkpoints }: { checkpoints: Checkpoint[] }) {
 }
 
 
-export default function ProductDetailPage({ params: { id } }: { params: { id: string } }) {
+export default function ProductDetailPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const product = getProductById(id);
-  // The state for checkpoints is now managed within this component only for display.
-  // In a real app, this would be fetched and updated from a database.
   const [checkpoints] = useState(product?.checkpoints || []);
+  const [formattedRegDate, setFormattedRegDate] = useState('');
+
+  useEffect(() => {
+    if (product) {
+      setFormattedRegDate(new Date(product.registrationDate).toLocaleDateString());
+    }
+  }, [product]);
 
   if (!product) {
     notFound();
@@ -82,7 +88,7 @@ export default function ProductDetailPage({ params: { id } }: { params: { id: st
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                 <div><span className="font-semibold">Product ID:</span> <Badge variant="secondary">{product.id}</Badge></div>
                 <div><span className="font-semibold">Owner:</span> <Badge variant="outline">{product.owner}</Badge></div>
-                <div><span className="font-semibold">Registered:</span> {new Date(product.registrationDate).toLocaleDateString()}</div>
+                <div><span className="font-semibold">Registered:</span> {formattedRegDate}</div>
                 <div>
                   <span className="font-semibold">IPFS Document:</span>
                   <a href="#" className="flex items-center gap-1 text-primary hover:underline">
