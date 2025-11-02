@@ -56,8 +56,7 @@ function CheckpointTimeline({ checkpoints }: { checkpoints: Checkpoint[] }) {
 }
 
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default function ProductDetailPage({ params: { id } }: { params: { id: string } }) {
   const product = getProductById(id);
   // The state for checkpoints is now managed within this component only for display.
   // In a real app, this would be fetched and updated from a database.

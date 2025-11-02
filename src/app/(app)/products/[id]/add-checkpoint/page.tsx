@@ -15,8 +15,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { UploadCloud, Loader2, PlusCircle } from 'lucide-react';
 
-export default function AddCheckpointPage({ params }: { params: { id: string } }) {
-    const { id } = params;
+export default function AddCheckpointPage({ params: { id } }: { params: { id: string } }) {
     const router = useRouter();
     const { toast } = useToast();
     const [isLoading, setIsLoading] = useState(false);
