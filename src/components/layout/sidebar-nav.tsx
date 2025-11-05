@@ -18,6 +18,7 @@ import {
   Users,
   Box,
   PlusCircle,
+  Library,
 } from "lucide-react";
 
 const navItems = [
@@ -25,6 +26,7 @@ const navItems = [
   { href: "/register-product", icon: FilePlus2, label: "Register Product" },
   { href: "/add-checkpoint", icon: PlusCircle, label: "Add Checkpoint" },
   { href: "/verify", icon: ScanLine, label: "Verify" },
+  { href: "/register-organization", icon: Library, label: "Register Organisation" },
   { href: "/feedback", icon: MessageSquare, label: "Feedback" },
   { href: "/admin", icon: Users, label: "Admin" },
 ];

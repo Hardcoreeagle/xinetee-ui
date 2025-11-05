@@ -13,6 +13,7 @@ const getTitleFromPath = (path: string) => {
     "/verify": "Verify Product",
     "/feedback": "User Feedback",
     "/admin": "Admin Panel",
+    "/register-organization": "Register Organisation",
   };
   return pathMap[path] || "Xietee";
 };
