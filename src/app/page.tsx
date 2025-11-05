@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Box, LogIn } from 'lucide-react';
+import { Box, Library, LogIn } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -35,6 +35,12 @@ export default function Home() {
               <div className="space-x-4">
                 <Button asChild>
                   <Link href="/login">Get Started</Link>
+                </Button>
+                 <Button variant="secondary" asChild>
+                  <Link href="/register-organization">
+                    <Library className="mr-2 h-4 w-4" />
+                    Register Organisation
+                  </Link>
                 </Button>
               </div>
             </div>
